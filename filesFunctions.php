@@ -39,6 +39,7 @@ function showFolder() {
         }
     }
 
+    // Reorder arrays values
     $dirs = array_values($dirs);
     $files = array_values($files);
     $filesSize = array_values($filesSize);
