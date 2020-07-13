@@ -46,30 +46,38 @@ function updateScreen(content) {
 }
 
 function changeFolder() {
-    actualDir = $(event.target).data("path");
-
     // Gets the clicked folder on Folder's tree explorer
     var dirMenu = $(event.target);
 
-    // Verifies if the directory is open on Folder's tree explorer to create a <UL>
-    if($(dirMenu).find("ul").length > 0){
+    // Verifies if the clicked forlder is the actual
+    if(actualDir == $(event.target).data("path")) {
         $(dirMenu).find("ul").empty();
+        actualDir = null;
     } else {
-        $(dirMenu).append("<ul>");
+        actualDir = $(event.target).data("path");
+
+        // Gets new folder contents
+        $.when(getFolderContent()).then(function(JSONcontent) {
+            content = parseContent(JSONcontent);
+            var dirs = content[0];
+
+            // Verifies if the directory is open on Folder's tree explorer to create a <UL>
+            if($(dirMenu).find("ul").length > 0){
+                $(dirMenu).find("ul").empty();
+            } else {
+                $(dirMenu).append("<ul>");
+            }
+
+            // Appending folders to side menu folder navigation (<ul> created above)
+            for (let i = 0; i < Object.keys(dirs).length; i++){
+                let folder = $("<li><i class='fa fa-folder'></i>"+dirs[i]+"</li>");
+                $(dirMenu).find("ul").append($(folder)
+                    .data("path",actualDir+dirs[i]+"/"));
+            }
+            // Updates main container with new folder's content
+            updateScreen(content);
+        });
     }
-    // Gets new folder contents
-    $.when(getFolderContent()).then(function(JSONcontent) {
-        content = parseContent(JSONcontent);
-        var dirs = content[0];
-        // Appending folders to side menu folder navigation (<ul> created above)
-        for (let i = 0; i < Object.keys(dirs).length; i++){
-            let folder = $("<li><i class='fa fa-folder'></i>"+dirs[i]+"<li>");
-            $(dirMenu).find("ul").append($(folder)
-                .data("path",actualDir+dirs[i]+"/"));
-        }
-        // Updates main container with new folder's content
-        updateScreen(content);
-    });
 }
 
 function fileClicked() {
