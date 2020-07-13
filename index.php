@@ -40,7 +40,7 @@
         </div>
         <div class="col-md-9 animated fadeInRight">
             <div class="row">
-                <div class="col-lg-12" id="folder">
+                <div class="col-lg-12" id="folder" style="background-color: blue;">
 
                 </div>
             </div>
