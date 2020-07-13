@@ -27,7 +27,7 @@
                 <div class="ibox-content">
                     <div class="file-manager">
                         <div class="hr-line-dashed"></div>
-                        <button class="btn btn-primary btn-block">Upload Files</button>
+                        <button class="btn btn-primary btn-block">NEW</button>
                         <div class="hr-line-dashed"></div>
                         <h5>Folders</h5>
                         <ul class="folder-list" style="padding: 0">
@@ -40,7 +40,7 @@
         </div>
         <div class="col-md-9 animated fadeInRight">
             <div class="row">
-                <div class="col-lg-12" id="folder" style="background-color: blue;">
+                <div class="col-lg-12" id="folder">
 
                 </div>
             </div>
