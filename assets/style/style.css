@@ -2,6 +2,11 @@ body{margin-top:20px;
     background:#eee;
 }
 
+li {
+    cursor: pointer;
+    user-select: none;
+}
+
 .file-box {
   float: left;
   width: 220px;
