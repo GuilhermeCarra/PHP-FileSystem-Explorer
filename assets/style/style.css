@@ -186,10 +186,19 @@ a:hover{
 text-decoration:none;    
 }
 
-.list-unstyled{
-    background-color: #f8f9fa;
-}
-
 .media:hover{
     background-color: royalblue;
 }
+
+
+
+.information{
+    font-size: 18px;
+
+}
+
+.d-left{
+    display: flex;
+    flex-direction: row;
+}
+
