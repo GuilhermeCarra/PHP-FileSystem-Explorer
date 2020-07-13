@@ -26,7 +26,6 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
                     <div class="file-manager">
-                        <div class="hr-line-dashed"></div>
                         <button class="btn btn-primary btn-block">NEW</button>
                         <div class="hr-line-dashed"></div>
                         <h5>Folders</h5>
