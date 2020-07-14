@@ -50,10 +50,12 @@ function changeFolder() {
     var dirMenu = $(event.target);
 
     // Verifies if the clicked forlder is the actual
-    if(actualDir == $(event.target).data("path")) {
+    if($(event.target).hasClass("active")) {
         $(dirMenu).find("ul").empty();
-        actualDir = null;
+        $(".active").removeClass("active");
     } else {
+        $(".active").removeClass("active");
+        $(event.target).addClass("active");
         actualDir = $(event.target).data("path");
 
         // Gets new folder contents
