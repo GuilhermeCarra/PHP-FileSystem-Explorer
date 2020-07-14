@@ -37,6 +37,7 @@
                             <h5>Folders</h5>
                             <ul class="folder-list" style="padding: 0">
                                 <li id="root"><i class="fa fa-folder"></i>My Files</li>
+                                <li id="delete"><i class="fa fa-trash"></i>Trash</li>
                             </ul>
                             <div class="clearfix"></div>
                         </div>

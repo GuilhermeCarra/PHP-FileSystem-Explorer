@@ -22,6 +22,7 @@ body{margin-top:20px;
 .folder-list li {
   border-bottom: 1px solid #e7eaec;
   display: block;
+  cursor: pointer;
 }
 .folder-list li i {
   margin-right: 8px;
@@ -235,5 +236,7 @@ text-decoration:none;
 .fa-download {
     cursor: pointer;
 }  
+
+
 
 
