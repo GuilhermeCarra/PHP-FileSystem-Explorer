@@ -239,7 +239,11 @@ a:hover {
     background-color: rgb(162, 185, 252);
 }
 
-
+.active {
+    background-color: rgb(218, 225, 248) !important;
+    border-radius: 6px;
+    padding: 5px;
+}
 
 .information {
     font-size: 18px;
