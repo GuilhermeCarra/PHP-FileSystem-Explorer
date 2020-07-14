@@ -98,6 +98,7 @@ function newFolder(name) {
         url: 'filesFunctions.php',
         data: ({operation: "newFolder", actualDir: actualDir, folderName: name}),
         success: function() {
+            // Before folder creation on PHP update screen to show the new folder
             $.when(getFolderContent()).then(function(JSONcontent) {
                 content = parseContent(JSONcontent);
                 var dirs = content[0];
