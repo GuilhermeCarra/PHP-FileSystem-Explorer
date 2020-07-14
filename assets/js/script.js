@@ -4,7 +4,7 @@ $("#root").data("path","My Files/").click(changeFolder);
 
 function getFolderContent() {
     // Request to PHP the folder's content
-    return $.get({
+    return $.post({
         type: 'POST',
         url: 'filesFunctions.php',
         data: ({operation: "showFolder", actualDir: actualDir}),
@@ -41,9 +41,11 @@ function updateScreen(content) {
     }
     // Appending files to main container
     for (let i = 0; i < Object.keys(content[1]).length; i++){
-        let file = $('<li class="media"></li>')
-        let img = '<img src="assets/img/file.png" class="mr-3 ml-1 mt-2 mb-1" height="50px" width="50px">'
-        let div = '<div class="media-body"><h5 class="mt-0 mb-1 mt-3">'+files[i]+'<span class="float-right">'+filesSize[i]+'</span></h5></div>'
+        let file = $('<li class="media"></li>');
+        let img = '<img src="assets/img/file.png" class="mr-3 ml-1 mt-2 mb-1" height="50px" width="50px">';
+        let div = '<div class="media-body"><h5 class="mt-0 mb-1 mt-3">'+files[i]+'<span class="float-right">'+filesSize[i]+'</span></h5></div>';
+        $(file,img,div).data("path",actualDir+files[i]);
+
         $(file).append(img,div);
         $('#folder').append($(file)
             .data("path",actualDir+files[i])
@@ -68,7 +70,29 @@ function updateFoldersTree(dirs) {
 }
 
 function fileClicked() {
-    console.log($(event.target).data("path"));
+    if ($(event.target).is("li")) {
+        var file = $(event.target).data("path");
+        var fileLI = $(event.target);
+    } else {
+        var file = $(event.target).closest("li").data("path");
+        var fileLI = $(event.target).closest("li");
+    }
+    var icon = $(fileLI).find("img").attr("src");
+    $.post({
+        type: 'POST',
+        url: 'filesFunctions.php',
+        data: ({operation: "viewFile", file: file}),
+        success: function(response) {
+            var fileInfo = JSON.parse(response);
+            $('#detail-icon').attr('src',icon);
+            $('#detail-name').text(fileInfo['name']);
+            $('#detail-type').text(fileInfo['type']);
+            $('#detail-size').text(fileInfo['size']);
+            $('#detail-mod').text(fileInfo['modified']);
+            $('#detail-creat').text(fileInfo['created']);
+        }
+    });
+
 }
 
 function changeFolder() {
@@ -99,7 +123,7 @@ function changeFolder() {
 }
 
 function newFolder(name) {
-    $.get({
+    $.post({
         type: 'POST',
         url: 'filesFunctions.php',
         data: ({operation: "newFolder", actualDir: actualDir, folderName: name}),
@@ -114,6 +138,19 @@ function newFolder(name) {
         }
     });
 }
+
+$("#newFolderModalBtn").click(function(){
+    $('#fname').val("");
+});
+
+$("#createFolderBtn").click(function(){
+    console.log("ok")
+    let name = $('#fname').val();
+    newFolder(name);
+    $('#newfolderModal').modal('hide');
+});
+
+
 
 // Right click menu
 window.addEventListener("contextmenu",function(event){

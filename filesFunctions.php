@@ -4,6 +4,9 @@ switch ($_POST['operation']) {
     case 'showFolder':
         showFolder();
         break;
+    case 'viewFile':
+        viewFile();
+        break;
     case 'newFolder':
         newFolder();
         break;
@@ -48,6 +51,18 @@ function showFolder() {
 
     echo json_encode($content);
 
+}
+
+function viewFile() {
+    $file = $_POST["file"];
+    $name = basename($file);
+    $size = bytesConvert(filesize($file));
+    $modified = date("F d Y H:i", filemtime($file));
+    $created = date("F d Y H:i", filectime($file));
+    $type = filetype($file);
+    $fileInfo = array("name"=>$name, "size"=>$size, "type"=>$type, "created"=>$created, "modified"=>$modified);
+    $fileInfoJSON = json_encode($fileInfo);
+    echo $fileInfoJSON;
 }
 
 function newFolder() {

@@ -31,8 +31,7 @@
                     <div class="ibox-content">
                         <div class="file-manager">
                             <div class="hr-line-dashed"></div>
-                            <button class="btn btn-primary btn-block" data-toggle="modal"
-                                data-target="#exampleModal">New Folder</button>
+                            <button class="btn btn-primary btn-block" id="newFolderModalBtn" data-toggle="modal" data-target="#newfolderModal">New Folder</button>
                             <div class="hr-line-dashed"></div>
                             <h5>Folders</h5>
                             <ul class="folder-list" style="padding: 0">
@@ -64,12 +63,13 @@
                     <div class="ibox-content">
                         <div class="file-manager">
                             <div class="hr-line-dashed"></div>
-                            <img src="assets/img/excel-2.png" class="" alt="..." height="35px" width="35px"> Excel.xls
+                            <img src="" id="detail-icon" height="35px" width="35px">
+                            <span class="h5" id="detail-name"></span>
                             <div class="hr-line-dashed"></div>
-                            <p class="information">Type: </p>
-                            <p class="information">Size: </p>
-                            <p class="information">Modified: </p>
-                            <p class="information">Created: </p>
+                            <p class="information">Type: <span id="detail-type"></span></p>
+                            <p class="information">Size: <span id="detail-size"></span></p>
+                            <p class="information">Modified: <span id="detail-mod"></span></p>
+                            <p class="information">Created: <span id="detail-creat"></span></p>
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
         </div> <!-- Right click menu -->
 
         <!-- New Folder Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="newfolderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -112,7 +112,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Create</button>
+                        <button type="button" class="btn btn-primary" id="createFolderBtn">Create</button>
                     </div>
                 </div>
             </div>
