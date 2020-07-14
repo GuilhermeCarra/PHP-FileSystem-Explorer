@@ -30,6 +30,7 @@ li {
 }
 
 .folder-list li {
+    border-bottom: 1px solid #e7eaec;
     display: block;
 }
 
@@ -123,7 +124,7 @@ li {
     margin-right: 10px;
 }
 
-.file-control.active {
+.file-control.menu-active {
     text-decoration: underline;
 }
 
@@ -227,4 +228,59 @@ a.compose-mail {
 
 a:hover {
     text-decoration: none;
+}
+
+.media:hover {
+    background-color: royalblue;
+}
+
+
+
+.information {
+    font-size: 18px;
+
+}
+
+.d-left {
+    display: flex;
+    flex-direction: row;
+}
+
+#rightclick-menu {
+    position: fixed;
+    z-index: 10000;
+    width: 150px;
+    background: #1b1a1a;
+    border-radius: 5px;
+    transform: scale(0);
+    transform-origin: top left;
+}
+
+#rightclick-menu.menu-active {
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
+}
+
+#rightclick-menu .item {
+    padding: 8px 10px;
+    font-size: 15px;
+    color: #eee;
+}
+
+#rightclick-menu .item:hover {
+    background: #555;
+}
+
+#rightclick-menu .item i {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#rightclick-menu hr {
+    margin: 2px 0px;
+    border-color: #555;
+}
+
+.fa-download {
+    cursor: pointer;
 }
