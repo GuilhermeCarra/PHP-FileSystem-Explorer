@@ -211,7 +211,7 @@ text-decoration:none;
     transform:scale(0);
     transform-origin:top left;
   }
-  #rightclick-menu.active {
+  #rightclick-menu.menu-active {
     transform:scale(1);
     transition:transform 300ms ease-in-out;
   }
