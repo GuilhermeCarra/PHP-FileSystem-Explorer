@@ -98,8 +98,9 @@ function updateScreen(content) {
     }
     // Appending files to main container
     for (let i = 0; i < Object.keys(content[1]).length; i++){
+        let ext = files[i].split('.')[1];
         let file = $('<li class="media"></li>');
-        let img = '<img src="assets/img/file.png" class="mr-3 ml-1 mt-2 mb-1" height="50px" width="50px">';
+        let img = $('<img src="assets/img/'+ext+'.png" class="mr-3 ml-1 mt-2 mb-1" height="50px" width="50px">');
         let div = '<div class="media-body"><h5 class="mt-0 mb-1 mt-3">'+files[i]+'<span class="float-right">'+filesSize[i]+'</span></h5></div>';
         $(file,img,div).data("path",actualDir+files[i]);
 
