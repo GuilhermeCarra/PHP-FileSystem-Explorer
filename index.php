@@ -18,12 +18,15 @@
     <div class="container">
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand">
-                <img src="assets/img/file-system-icon-28.jpg" height="40px" width="40px"> FL
+                <img src="assets/img/file-system-icon-28.jpg" class="mb-2" id="logofile" height="40px" width="40px"> 
+                <text class="logo-text mt-1">FS</text>
             </a>
-            <form class="form-inline d-left">
+            <div class="form-inline">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <i class="fa fa-download ml-3"></i>
-            </form>
+                <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
+                <i class="fa fa-download ml-3 file-upload__button" type="button"></i>
+                <span class="file-upload__label ml-1"></span>
+            </div>
         </nav>
         <div class="row">
             <div class="col-md-3">
@@ -47,9 +50,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-light bg-light">
-                            <a class="navbar-brand">Name</a>
+                            <a class="navbar-brand ml-1">Name</a>
                             <form class="form-inline">
-                                <a class="navbar-brand">Size</a>
+                                <a class="navbar-brand mr-4">Size</a>
                             </form>
                         </nav>
                         <ul class="list-unstyled" id="folder">
@@ -117,9 +120,8 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- New Folder Modal -->
-
-    </div>
+        </div>
+     
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
