@@ -20,6 +20,7 @@
             <a class="navbar-brand">FL</a>
             <form class="form-inline d-left">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <i class="fa fa-download ml-3"></i>
             </form>
         </nav>
         <div class="row">
@@ -91,18 +92,34 @@
                 </div>
             </div>
         </div>
-    </div>
+        <div id="rightclick-menu">
+            <div class="item">
+                <i class="fa fa-cut"></i> Cut
+            </div>
+            <div class="item">
+                <i class="fa fa-copy"></i> Copy
+            </div>
+            <div class="item">
+                <i class="fa fa-paste"></i> Paste
+            </div>
+            <div class="item">
+                <i class="fa fa-trash-o"></i> Remove
+            </div>
+            <div class="item">
+                <i class="fa fa-font"></i> Rename
+            </div>
+        </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-    </script>
-    <script src="assets/js/script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
+        <script src="assets/js/script.js"></script>
 </body>
 
 </html>
