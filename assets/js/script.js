@@ -150,8 +150,6 @@ $("#createFolderBtn").click(function(){
     $('#newfolderModal').modal('hide');
 });
 
-
-
 // Right click menu
 window.addEventListener("contextmenu",function(event){
     event.preventDefault();
