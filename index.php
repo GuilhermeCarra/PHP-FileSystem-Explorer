@@ -34,8 +34,7 @@
                     <div class="ibox-content">
                         <div class="file-manager">
                             <div class="hr-line-dashed"></div>
-                            <button class="btn btn-primary btn-block" data-toggle="modal"
-                                data-target="#exampleModal">New Folder</button>
+                            <button class="btn btn-primary btn-block" id="newFolderModalBtn" data-toggle="modal" data-target="#newfolderModal">New Folder</button>
                             <div class="hr-line-dashed"></div>
                             <h5>Folders</h5>
                             <ul class="folder-list" style="padding: 0">
@@ -49,56 +48,38 @@
             </div>
             <div class="col-md-6 animated fadeInRight">
                 <div class="row">
-                    <div class="col-lg-12" id="folder">
+                    <div class="col-lg-12">
                         <nav class="navbar navbar-light bg-light">
                             <a class="navbar-brand ml-1">Name</a>
                             <form class="form-inline">
                                 <a class="navbar-brand mr-4">Size</a>
                             </form>
                         </nav>
-                        <ul class="list-unstyled">
-                            <li class="media">
-                                <img src="assets/img/excel-2.png" class="mr-3 ml-1 mt-2 mb-1" alt="..." height="50px"
-                                    width="50px">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 mt-3">List-based media object</h5>
-                                </div>
-                            </li>
-                            <li class="media my-4">
-                                <img src="assets/img/excel-2.png" class="mr-3 ml-1 mt-2 mb-1" alt="..." height="50px"
-                                    width="50px">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 mt-3">List-based media object</h5>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img src="assets/img/excel-2.png" class="mr-3 ml-1 mt-2 mb-1" alt="..." height="50px"
-                                    width="50px">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 mt-3">List-based media object</h5>
-                                </div>
-                            </li>
+                        <ul class="list-unstyled" id="folder">
+                            <!-- Archives / Folder printed dynamically -->
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-none" id="info">
+            <div class="col-md-3" id="info">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
                         <div class="file-manager">
                             <div class="hr-line-dashed"></div>
-                            <img src="assets/img/excel-2.png" class="" alt="..." height="35px" width="35px"> Excel.xls
+                            <img src="" id="detail-icon" height="35px" width="35px">
+                            <span class="h5" id="detail-name"></span>
                             <div class="hr-line-dashed"></div>
-                            <p class="information">Type: </p>
-                            <p class="information">Size: </p>
-                            <p class="information">Modified: </p>
-                            <p class="information">Created: </p>
+                            <p class="information">Type: <span id="detail-type"></span></p>
+                            <p class="information">Size: <span id="detail-size"></span></p>
+                            <p class="information">Modified: <span id="detail-mod"></span></p>
+                            <p class="information">Created: <span id="detail-creat"></span></p>
                             <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Right click menu -->
         <div id="rightclick-menu">
             <div class="item">
                 <i class="fa fa-cut"></i> Cut
@@ -115,10 +96,10 @@
             <div class="item">
                 <i class="fa fa-font"></i> Rename
             </div>
-        </div>
+        </div> <!-- Right click menu -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <!-- New Folder Modal -->
+        <div class="modal fade" id="newfolderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -134,7 +115,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Create</button>
+                        <button type="button" class="btn btn-primary" id="createFolderBtn">Create</button>
                     </div>
                 </div>
             </div>
