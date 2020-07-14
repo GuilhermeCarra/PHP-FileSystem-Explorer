@@ -76,6 +76,7 @@
                 </div>
             </div>
         </div>
+        <!-- Right click menu -->
         <div id="rightclick-menu">
             <div class="item">
                 <i class="fa fa-cut"></i> Cut
@@ -92,9 +93,9 @@
             <div class="item">
                 <i class="fa fa-font"></i> Rename
             </div>
-        </div>
+        </div> <!-- Right click menu -->
 
-        <!-- Modal -->
+        <!-- New Folder Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -115,7 +116,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> <!-- New Folder Modal -->
+
     </div>
 
 
