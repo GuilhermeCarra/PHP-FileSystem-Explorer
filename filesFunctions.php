@@ -51,7 +51,8 @@ function showFolder() {
 }
 
 function newFolder() {
-
+    $path = $_POST["actualDir"] . $_POST["folderName"];;
+    mkdir($path);
 }
 
 function renameFile() {
