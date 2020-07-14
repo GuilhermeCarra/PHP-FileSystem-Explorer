@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine&family=Play&display=swap');
+
 body{margin-top:20px;
     background:#eee;
 }
@@ -189,6 +191,7 @@ text-decoration:none;
 
 .media:hover{
     background-color: royalblue;
+    cursor: pointer;
 }
 
 
@@ -236,6 +239,24 @@ text-decoration:none;
 .fa-download {
     cursor: pointer;
 }  
+
+#logofile{
+    cursor: pointer;
+}
+
+.file-upload__input{
+  display: none;
+}
+
+.logo-text{
+    font-size: 22px;
+    margin-top: 10px;
+    font-family: 'Domine', serif;
+}
+
+.display-n{
+    display: none;
+}
 
 
 
