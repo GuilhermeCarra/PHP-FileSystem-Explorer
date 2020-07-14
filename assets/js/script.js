@@ -31,14 +31,20 @@ function updateScreen(content) {
 
     // Appending folders to main container
     for (let i = 0; i < Object.keys(content[0]).length; i++){
-        let folder = '<li>'+dirs[i]+'</li>'
+        let folder = $('<li class="media"></li>')
+        let img = '<img src="assets/img/folder.png" class="mr-3 ml-1 mt-2 mb-1" height="50px" width="50px">'
+        let div = '<div class="media-body"><h5 class="mt-0 mb-1 mt-3">'+dirs[i]+'</h5></div>'
+        $(folder).append(img,div);
         $('#folder').append($(folder)
             .data("path",actualDir+dirs[i]+"/")
             .dblclick(changeFolder));
     }
     // Appending files to main container
     for (let i = 0; i < Object.keys(content[1]).length; i++){
-        let file = '<li>'+files[i]+'</li>"'
+        let file = $('<li class="media"></li>')
+        let img = '<img src="assets/img/file.png" class="mr-3 ml-1 mt-2 mb-1" height="50px" width="50px">'
+        let div = '<div class="media-body"><h5 class="mt-0 mb-1 mt-3">'+files[i]+'<span class="float-right">'+filesSize[i]+'</span></h5></div>'
+        $(file).append(img,div);
         $('#folder').append($(file)
             .data("path",actualDir+files[i])
             .click(fileClicked));
