@@ -241,13 +241,13 @@ a:hover {
     background-color: royalblue;
     cursor: pointer;
 }
-    
+
 .media:hover {
     background-color: rgb(162, 185, 252);
 }
 
 .active {
-    background-color: rgb(218, 225, 248) !important;
+    background-color: rgb(238, 235, 235) !important;
     border-radius: 6px;
     padding: 5px;
 }
@@ -317,4 +317,8 @@ a:hover {
 
 .fa-download {
     cursor: pointer;
+}
+
+video:focus, video, audio {
+    outline: none;
 }

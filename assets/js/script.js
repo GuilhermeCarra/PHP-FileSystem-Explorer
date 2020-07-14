@@ -126,6 +126,11 @@ function updateFoldersTree(dirs) {
     }
 }
 
+function getExtension(filename) {
+    var parts = filename.split('.');
+    return parts[parts.length - 1];
+}
+
 function fileClicked() {
     if ($(event.target).is("li")) {
         var file = $(event.target).data("path");
@@ -134,7 +139,10 @@ function fileClicked() {
         var file = $(event.target).closest("li").data("path");
         var fileLI = $(event.target).closest("li");
     }
+    var extension = getExtension(file);
     var icon = $(fileLI).find("img").attr("src");
+    $('#details-preview').empty();
+    $('#details-preview').addClass("d-none");
     $.post({
         type: 'POST',
         url: 'filesFunctions.php',
@@ -148,6 +156,22 @@ function fileClicked() {
             $('#detail-mod').text(fileInfo['modified']);
             $('#detail-creat').text(fileInfo['created']);
             $('#details-file').removeClass("d-none");
+            if (extension == 'mp3' || extension == 'wav' || extension == 'wma' || extension == 'm4a') {
+                console.log("entered"+extension)
+                $('#details-preview').removeClass("d-none");
+                let audio = '<audio controls class="col"><source src="'+file+'"></audio>'
+                $('#details-preview').append(audio);
+            }
+            if (extension == 'jpg' || extension == 'jpeg' || extension == 'png' || extension == 'gif') {
+                $('#details-preview').removeClass("d-none");
+                let img = '<img class="img-thumbnail" src="'+file+'">';
+                $('#details-preview').append(img);
+            }
+            if (extension == 'mp4' || extension == 'avi' || extension == 'wmv' || extension == 'mov' || extension == 'flv') {
+                $('#details-preview').removeClass("d-none");
+                let video = '<video controls class="img-thumbnail"><source src="'+file+'"></video>'
+                $('#details-preview').append(video);
+            }
         }
     });
 
