@@ -90,6 +90,7 @@ function fileClicked() {
             $('#detail-size').text(fileInfo['size']);
             $('#detail-mod').text(fileInfo['modified']);
             $('#detail-creat').text(fileInfo['created']);
+            $('#details-file').removeClass("d-none");
         }
     });
 

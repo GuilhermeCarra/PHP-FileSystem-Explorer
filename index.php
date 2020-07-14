@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 d-none" id="details-file">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
                         <div class="file-manager">
@@ -66,10 +66,11 @@
                             <img src="" id="detail-icon" height="35px" width="35px">
                             <span class="h5" id="detail-name"></span>
                             <div class="hr-line-dashed"></div>
-                            <p class="information">Type: <span id="detail-type"></span></p>
-                            <p class="information">Size: <span id="detail-size"></span></p>
-                            <p class="information">Modified: <span id="detail-mod"></span></p>
-                            <p class="information">Created: <span id="detail-creat"></span></p>
+                            <h4 class="information mt-4">Type: <strong id="detail-type" class="small"></strong></h4>
+                            <h4 class="information mt-4">Size: <strong id="detail-size" class="small"></strong></h4>
+                            <h4 class="information mt-4">Modified: <strong id="detail-mod" class="small"></strong></h4>
+                            <h4 class="information mt-4">Created: <strong id="detail-creat" class="small"></strong></h4>
+                            <h4 class="information mt-4 d-none">Preview: </h4>
                             <div class="clearfix"></div>
                         </div>
                     </div>
