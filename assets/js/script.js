@@ -69,9 +69,9 @@ window.addEventListener("click",function(){
     document.getElementById("rightclick-menu").classList.remove("menu-active");
 });
 
-var actualDir = "My Files/";
+var actualDir = "Root/";
 
-$("#root").data("path","My Files/").click(changeFolder);
+$("#root").data("path","Root/").click(changeFolder);
 
 function getFolderContent() {
     // Request to PHP the folder's content
