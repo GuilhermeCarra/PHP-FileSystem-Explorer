@@ -323,6 +323,47 @@ function renameFile(newName) {
     });
 }
 
+// Cut + Paste file
+$("#rightClickCut").click(function(){
+    var file = $("#rightclick-menu").data("path");
+    $.post({
+        type: 'POST',
+        url: 'filesFunctions.php',
+        data: ({operation: "cutFile", name: file}),
+        success: function() {
+            // After file cut on PHP update screen to show modifications
+            $.when(getFolderContent()).then(function(JSONcontent) {
+                content = parseContent(JSONcontent);
+                var dirs = content[0];
+                updateFoldersTree(dirs);
+                updateScreen(content);
+                $("#rightClickCut").addClass("d-none");
+                $("#rightClickPaste").removeClass("d-none");
+            });
+        }
+    });
+});
+
+$("#rightClickPaste").click(function(){
+    var file = $("#rightclick-menu").data("path");
+    $.post({
+        type: 'POST',
+        url: 'filesFunctions.php',
+        data: ({operation: "pasteFile", name: file}),
+        success: function() {
+            // After file paste on PHP update screen to show modifications
+            $.when(getFolderContent()).then(function(JSONcontent) {
+                content = parseContent(JSONcontent);
+                var dirs = content[0];
+                updateFoldersTree(dirs);
+                updateScreen(content);
+                $("#rightClickPaste").addClass("d-none");
+                $("#rightClickCut").removeClass("d-none");
+            });
+        }
+    });
+});
+
 // Show "Trash" files
 $("#delete").data("path","Trash/");
 $("#delete").click(function(){

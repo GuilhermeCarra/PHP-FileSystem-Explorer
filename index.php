@@ -85,10 +85,7 @@
             <div class="item" id="rightClickCut">
                 <i class="fa fa-cut"></i> Cut
             </div>
-            <div class="item" id="rightClickCopy">
-                <i class="fa fa-copy"></i> Copy
-            </div>
-            <div class="item" id="rightClickPaste">
+            <div class="item d-none" id="rightClickPaste">
                 <i class="fa fa-paste"></i> Paste
             </div>
             <div class="item" id="rightClickRemove">

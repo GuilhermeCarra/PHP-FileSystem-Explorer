@@ -16,6 +16,12 @@ switch ($_POST['operation']) {
     case 'removeFile':
         removeFile();
         break;
+    case 'cutFile':
+        cutFile();
+        break;
+    case 'pasteFile':
+        pasteFile();
+        break;
 }
 
 function showFolder() {
@@ -85,6 +91,17 @@ function removeFile() {
     rename($_POST['name'], 'Trash/'.$basename);
 }
 
+function cutFile() {
+    $basename = basename($_POST['name']);
+    rename($_POST['name'], 'Cutted/'.$basename);
+}
+
+function pasteFile() {
+    $path = pathinfo($_POST['name']);
+    $cuttedFile = scandir("Cutted/")[2];
+    rename('Cutted/'.$cuttedFile, $path['dirname']."/".$cuttedFile);
+}
+
 function bytesConvert($bytes) {
     if ($bytes >= 1073741824) {
         $bytes = number_format($bytes / 1073741824, 2) . ' GB';
@@ -97,5 +114,6 @@ function bytesConvert($bytes) {
     }
     return $bytes;
 }
+
 
 ?>
