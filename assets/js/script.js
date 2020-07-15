@@ -44,7 +44,19 @@ setTimeout(fade_out, 5000);
 
 // Right click menu
 function rightclick(event){
+    // Getting data-path from li to know which file was clicked
+    if ($(event.target).is("li")) {
+        var file = $(event.target).data("path");
+    } else {
+        var file = $(event.target).closest("li").data("path");
+    }
+
     event.preventDefault();
+
+    // Passing file path to menu
+    $("#rightclick-menu").data("path",file);
+
+    // Applying styles to show right click menu
     var contextElement = document.getElementById("rightclick-menu");
     contextElement.style.top = event.offsetY + "px";
     contextElement.style.left = event.offsetX + "px";
@@ -54,6 +66,8 @@ window.addEventListener("click",function(){
     document.getElementById("rightclick-menu").classList.remove("menu-active");
 });
 
+$("#rightClickRemove").click(removeFile);
+$("#rightClickRename").click(renameFile);
 
 var actualDir = "My Files/";
 
@@ -232,3 +246,42 @@ $("#createFolderBtn").click(function(){
     newFolder(name);
     $('#newfolderModal').modal('hide');
 });
+
+function removeFile() {
+    console.log("removing "+$("#rightclick-menu").data("path"));
+    var file = $("#rightclick-menu").data("path");
+    $.post({
+        type: 'POST',
+        url: 'filesFunctions.php',
+        data: ({operation: "removeFile", name: file}),
+        success: function(x) {
+            alert(x);
+            // After file elimination on PHP update screen to show modifications
+            $.when(getFolderContent()).then(function(JSONcontent) {
+                content = parseContent(JSONcontent);
+                var dirs = content[0];
+                updateFoldersTree(dirs);
+                updateScreen(content);
+            });
+        }
+    });
+}
+
+function renameFile() {
+    console.log("renaming "+$("#rightclick-menu").data("path"));
+    var file = $("#rightclick-menu").data("path");
+    $.post({
+        type: 'POST',
+        url: 'filesFunctions.php',
+        data: ({operation: "renameFile", name: file}),
+        success: function() {
+            // After file rename on PHP update screen to show modifications
+            $.when(getFolderContent()).then(function(JSONcontent) {
+                content = parseContent(JSONcontent);
+                var dirs = content[0];
+                updateFoldersTree(dirs);
+                updateScreen(content);
+            });
+        }
+    });
+}

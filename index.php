@@ -82,19 +82,19 @@
         </div>
         <!-- Right click menu -->
         <div id="rightclick-menu">
-            <div class="item">
+            <div class="item" id="rightClickCut">
                 <i class="fa fa-cut"></i> Cut
             </div>
-            <div class="item">
+            <div class="item" id="rightClickCopy">
                 <i class="fa fa-copy"></i> Copy
             </div>
-            <div class="item">
+            <div class="item" id="rightClickPaste">
                 <i class="fa fa-paste"></i> Paste
             </div>
-            <div class="item">
-                <i class="fa fa-trash-o"></i> Remove
+            <div class="item" id="rightClickRemove">
+                <i class="fa fa-trash-o" ></i> Remove
             </div>
-            <div class="item">
+            <div class="item" id="rightClickRename">
                 <i class="fa fa-font"></i> Rename
             </div>
         </div> <!-- Right click menu -->

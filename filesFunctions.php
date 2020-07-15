@@ -10,11 +10,11 @@ switch ($_POST['operation']) {
     case 'newFolder':
         newFolder();
         break;
-    case 'rename':
+    case 'renameFile':
         renameFile();
         break;
-    case 'delete':
-        deleteFile();
+    case 'removeFile':
+        removeFile();
         break;
 }
 
@@ -74,8 +74,9 @@ function renameFile() {
 
 }
 
-function deleteFile() {
-
+function removeFile() {
+    $basename = basename($_POST['name']);
+    rename($_POST['name'], 'Trash/'.$basename);
 }
 
 function bytesConvert($bytes) {
