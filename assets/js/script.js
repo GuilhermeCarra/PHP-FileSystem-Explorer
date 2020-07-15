@@ -43,13 +43,13 @@ setTimeout(fade_out, 5000);
 } */ 
 
 // Right click menu
-window.addEventListener("contextmenu",function(event){
+function rightclick(event){
     event.preventDefault();
     var contextElement = document.getElementById("rightclick-menu");
     contextElement.style.top = event.offsetY + "px";
     contextElement.style.left = event.offsetX + "px";
     contextElement.classList.add("menu-active");
-});
+};
 window.addEventListener("click",function(){
     document.getElementById("rightclick-menu").classList.remove("menu-active");
 });
@@ -94,7 +94,8 @@ function updateScreen(content) {
         $(folder).append(img,div);
         $('#folder').append($(folder)
             .data("path",actualDir+dirs[i]+"/")
-            .dblclick(changeFolder));
+            .dblclick(changeFolder)
+            .contextmenu(rightclick));
     }
     // Appending files to main container
     for (let i = 0; i < Object.keys(content[1]).length; i++){
@@ -107,7 +108,8 @@ function updateScreen(content) {
         $(file).append(img,div);
         $('#folder').append($(file)
             .data("path",actualDir+files[i])
-            .click(fileClicked));
+            .click(fileClicked)
+            .contextmenu(rightclick));
     }
 }
 
@@ -158,17 +160,16 @@ function fileClicked() {
             $('#detail-creat').text(fileInfo['created']);
             $('#details-file').removeClass("d-none");
             if (extension == 'mp3' || extension == 'wav' || extension == 'wma' || extension == 'm4a') {
-                console.log("entered"+extension)
                 $('#details-preview').removeClass("d-none");
                 let audio = '<audio controls class="col"><source src="'+file+'"></audio>'
                 $('#details-preview').append(audio);
             }
-            if (extension == 'jpg' || extension == 'jpeg' || extension == 'png' || extension == 'gif') {
+            if (extension == 'jpg' || extension == 'jpeg' || extension == 'png' || extension == 'gif' || extension == 'svg') {
                 $('#details-preview').removeClass("d-none");
                 let img = '<img class="img-thumbnail" src="'+file+'">';
                 $('#details-preview').append(img);
             }
-            if (extension == 'mp4' || extension == 'avi' || extension == 'wmv' || extension == 'mov' || extension == 'flv') {
+            if (extension == 'mp4' || extension == 'avi' || extension == 'wmv' || extension == 'mov' || extension == 'mpg') {
                 $('#details-preview').removeClass("d-none");
                 let video = '<video controls class="img-thumbnail"><source src="'+file+'"></video>'
                 $('#details-preview').append(video);
@@ -227,7 +228,6 @@ $("#newFolderModalBtn").click(function(){
 });
 
 $("#createFolderBtn").click(function(){
-    console.log("ok")
     let name = $('#fname').val();
     newFolder(name);
     $('#newfolderModal').modal('hide');
