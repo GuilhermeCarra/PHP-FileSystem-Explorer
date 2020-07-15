@@ -15,6 +15,11 @@ li {
     min-height: calc(100vh - 40px);
 }
 
+.bg-header {
+    background-color:  #ffffff!important;
+    border-bottom: 1px solid lightgrey;
+}
+
 .file-box {
     float: left;
     width: 220px;

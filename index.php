@@ -16,9 +16,9 @@
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light bg-header">
             <a class="navbar-brand">
-                <img src="assets/img/file-system-icon-28.jpg" class="mb-2" id="logofile" height="40px" width="40px"> 
+                <img src="assets/img/file-system-icon-28.jpg" class="mb-2" id="logofile" height="40px" width="40px">
                 <text class="logo-text mt-1">FS</text>
             </a>
             <div class="form-inline">
