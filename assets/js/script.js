@@ -125,7 +125,18 @@ function updateScreen(content) {
 }
 
 function updateFoldersTree(dirs) {
-    // Verifies if the directory is open on Folder's tree explorer to create a <UL>
+    // Verifies if the folder was changed by main container of files (not folders tree)
+    if($(".active").hasClass("media")) {
+        var path = $(".active").data("path");
+        $(".active").removeClass(".active");
+        $("#root li").each(function(_, li) {
+            if($(li).data("path") == path) {
+                $(li).addClass("active");
+            }
+        });
+    }
+
+    // Verifies if the directory is open on Folder's tree explorer to create a <UL> (or not)
     if($(".active").find("ul").length > 0){
         $(".active").find("ul").empty();
     } else {
