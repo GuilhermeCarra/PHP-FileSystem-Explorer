@@ -193,6 +193,7 @@ function fileClicked() {
 function changeFolder() {
     // Gets the clicked folder on Folder's tree explorer
     var dirMenu = $(event.target);
+    console.log(dirMenu)
 
     // Verifies if the clicked folder is the actual
     if($(event.target).hasClass("active")) {
@@ -304,3 +305,9 @@ function renameFile(newName) {
         }
     });
 }
+
+// Show "Trash" files
+$("#delete").data("path","Trash/");
+$("#delete").click(function(){
+    changeFolder(event);
+});
