@@ -192,17 +192,20 @@ function fileClicked() {
 
 function changeFolder() {
     // Gets the clicked folder on Folder's tree explorer
-    var dirMenu = $(event.target);
-    console.log(dirMenu)
+    if ($(event.target).is("li")){
+        var dirMenu = $(event.target);
+    } else {
+        var dirMenu = $(event.target).closest("li");
+    }
 
     // Verifies if the clicked folder is the actual
-    if($(event.target).hasClass("active")) {
+    if($(dirMenu).hasClass("active")) {
         $(dirMenu).find("ul").empty();
         $(".active").removeClass("active");
     } else {
         $(".active").removeClass("active");
-        $(event.target).addClass("active");
-        actualDir = $(event.target).data("path");
+        $(dirMenu).addClass("active");
+        actualDir = dirMenu.data("path");
 
         // Gets new folder contents
         $.when(getFolderContent()).then(function(JSONcontent) {
