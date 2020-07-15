@@ -71,7 +71,13 @@ function newFolder() {
 }
 
 function renameFile() {
-
+    $path = pathinfo($_POST['name']);
+    if (!is_dir($_POST['name'])) {
+        $newFileName = $path['dirname']."/".$_POST['newName'].".".$path['extension'];
+    } else {
+        $newFileName = $path['dirname']."/".$_POST['newName'];
+    }
+    rename($_POST['name'], $newFileName);
 }
 
 function removeFile() {

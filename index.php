@@ -39,7 +39,7 @@
                             <h5>Folders</h5>
                             <ul class="folder-list" style="padding: 0">
                                 <li id="root"><i class="fa fa-folder"></i>My Files</li>
-                                <li id="delete"><i class="fa fa-trash"></i>Trash</li>
+                                <li id="delete" class="mt-2"><i class="fa fa-trash"></i>Trash</li>
                             </ul>
                             <div class="clearfix"></div>
                         </div>
@@ -117,6 +117,30 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" id="createFolderBtn">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rename file Modal -->
+        <div class="modal fade" id="renameFileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Rename File</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="mb-3">File name: <strong id="oldNameRenameModal"></strong></h6>
+                        <label for="fnewname">New Name: </label>
+                        <input type="text" id="fnewname" name="fnewname">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="renameFileBtn">Rename</button>
                     </div>
                 </div>
             </div>

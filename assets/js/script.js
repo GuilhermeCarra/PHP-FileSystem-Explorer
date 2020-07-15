@@ -265,9 +265,28 @@ function removeFile() {
 }
 
 // Rename function
-$("#rightClickRename").click(renameFile);
-function renameFile() {
-    console.log("renaming "+$("#rightclick-menu").data("path"));
+$("#rightClickRename").click(function() {
+    var file = $("#rightclick-menu").data("path");
+    if (file.includes(".")) {
+        var filename = file.replace(/^.*[\\\/]/, '')
+    } else {
+        var filename = file.split("/");
+        filename = filename[filename.length-2];
+    }
+    $("#oldNameRenameModal").text(filename);
+    $("#fnewname").val("");
+    $('#renameFileModal').modal('show');
+});
+
+$("#renameFileBtn").click(function() {
+    var newName = $("#fnewname").val();
+    if (newName.length > 0 && newName.trim().length > 0) {
+        newName = newName.trim();
+        renameFile(newName);
+    }
+});
+
+function renameFile(newName) {
     var file = $("#rightclick-menu").data("path");
     $.post({
         type: 'POST',
@@ -280,6 +299,7 @@ function renameFile() {
                 var dirs = content[0];
                 updateFoldersTree(dirs);
                 updateScreen(content);
+                $('#renameFileModal').modal('hide');
             });
         }
     });
