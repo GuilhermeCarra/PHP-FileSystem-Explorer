@@ -55,7 +55,7 @@
                                 <a class="navbar-brand mr-4">Size</a>
                             </form>
                         </nav>
-                        <ul class="list-unstyled" id="folder">
+                        <ul class="list-unstyled" id="folder" >
                             <!-- Archives / Folder printed dynamically -->
                         </ul>
                     </div>

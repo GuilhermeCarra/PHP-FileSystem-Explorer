@@ -243,18 +243,18 @@ a:hover {
 }
 
 .media:hover{
-    background-color: royalblue;
-    cursor: pointer;
-}
-
-.media:hover {
     background-color: rgb(162, 185, 252);
+    cursor: pointer;
 }
 
 .active {
     background-color: rgb(238, 235, 235) !important;
     border-radius: 6px;
     padding: 5px;
+}
+
+.active-file {
+    background-color: rgb(162, 185, 252);
 }
 
 .information {

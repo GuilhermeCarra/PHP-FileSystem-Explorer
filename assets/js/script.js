@@ -47,8 +47,10 @@ function rightclick(event){
     // Getting data-path from li to know which file was clicked
     if ($(event.target).is("li")) {
         var file = $(event.target).data("path");
+        $(event.target).addClass("active-file");
     } else {
         var file = $(event.target).closest("li").data("path");
+        $(event.target).closest("li").addClass("active-file");
     }
 
     event.preventDefault();
@@ -58,11 +60,12 @@ function rightclick(event){
 
     // Applying styles to show right click menu
     var contextElement = document.getElementById("rightclick-menu");
-    contextElement.style.top = event.offsetY + "px";
-    contextElement.style.left = event.offsetX + "px";
+    contextElement.style.top = event.clientY + "px";
+    contextElement.style.left = event.clientX + "px";
     contextElement.classList.add("menu-active");
 };
 window.addEventListener("click",function(){
+    $(".active-file").removeClass("active-file");
     document.getElementById("rightclick-menu").classList.remove("menu-active");
 });
 
