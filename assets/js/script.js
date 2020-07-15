@@ -248,14 +248,12 @@ $("#createFolderBtn").click(function(){
 });
 
 function removeFile() {
-    console.log("removing "+$("#rightclick-menu").data("path"));
     var file = $("#rightclick-menu").data("path");
     $.post({
         type: 'POST',
         url: 'filesFunctions.php',
         data: ({operation: "removeFile", name: file}),
-        success: function(x) {
-            alert(x);
+        success: function() {
             // After file elimination on PHP update screen to show modifications
             $.when(getFolderContent()).then(function(JSONcontent) {
                 content = parseContent(JSONcontent);
