@@ -19,7 +19,7 @@
         <nav class="navbar navbar-light bg-header">
             <a class="navbar-brand">
                 <img src="assets/img/file-system-icon-28.jpg" class="mb-2" id="logofile" height="40px" width="40px">
-                <text class="logo-text mt-1">FS</text>
+                <text class="logo-text mt-1">FileSys</text>
             </a>
             <div class="form-inline">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search">

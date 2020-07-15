@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Domine&family=Play&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Domine&family=Play&display=swap');
 
 body{
     margin-top:20px;
@@ -291,9 +291,9 @@ a:hover {
 }
 
 .logo-text{
-    font-size: 22px;
+    font-size: 28px;
     margin-top: 10px;
-    font-family: 'Domine', serif;
+    font-family: 'Do Hyeon', sans-serif;
 }
 
 .display-n{
