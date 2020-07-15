@@ -66,9 +66,6 @@ window.addEventListener("click",function(){
     document.getElementById("rightclick-menu").classList.remove("menu-active");
 });
 
-$("#rightClickRemove").click(removeFile);
-$("#rightClickRename").click(renameFile);
-
 var actualDir = "My Files/";
 
 $("#root").data("path","My Files/").click(changeFolder);
@@ -247,6 +244,8 @@ $("#createFolderBtn").click(function(){
     $('#newfolderModal').modal('hide');
 });
 
+// Remove function
+$("#rightClickRemove").click(removeFile);
 function removeFile() {
     var file = $("#rightclick-menu").data("path");
     $.post({
@@ -265,13 +264,15 @@ function removeFile() {
     });
 }
 
+// Rename function
+$("#rightClickRename").click(renameFile);
 function renameFile() {
     console.log("renaming "+$("#rightclick-menu").data("path"));
     var file = $("#rightclick-menu").data("path");
     $.post({
         type: 'POST',
         url: 'filesFunctions.php',
-        data: ({operation: "renameFile", name: file}),
+        data: ({operation: "renameFile", name: file, newName: newName}),
         success: function() {
             // After file rename on PHP update screen to show modifications
             $.when(getFolderContent()).then(function(JSONcontent) {
