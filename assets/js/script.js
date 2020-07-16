@@ -45,6 +45,9 @@ $("#btn_upload").click(function() {
                 var dirs = content[0];
                 updateFoldersTree(dirs);
                 updateScreen(content);
+                setTimeout(function(){
+                    $(".file-upload__label").fadeOut().empty();
+                }, 1500);
             });
         }
     });
@@ -53,14 +56,6 @@ $("#btn_upload").click(function() {
 document.getElementById("logofile").addEventListener("click",function(){
     location.reload();
 });
-
-  // TIME TO FINISH
-/* Timer to finish
-setTimeout(fade_out, 5000);
-
- function fade_out() {
-  $(".file-upload__label").fadeOut().empty();
-} */
 
 // Right click menu
 function rightclick(event){
