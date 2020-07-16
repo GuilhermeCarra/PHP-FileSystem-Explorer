@@ -25,6 +25,9 @@ switch ($_POST['operation']) {
     case 'search':
         search();
         break;
+    case 'readCSV':
+        readCSV();
+        break;
 }
 
 function showFolder() {
@@ -158,6 +161,22 @@ function search() {
     $content = array(json_encode($dirs),json_encode($files),json_encode($filesSize));
 
     echo json_encode($content);
+}
+
+function readCSV() {
+    $handle = fopen($_POST['file'], "r");
+    $printedCSV = "";
+    while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
+        $printedCSV .= "<tr>";
+        foreach($data as $td) {
+            $printedCSV .= "<td>";
+            $printedCSV .= $td;
+            $printedCSV .= "</td>";
+        }
+        $printedCSV .= "</tr>";
+    }
+    fclose($handle);
+    echo $printedCSV;
 }
 
 ?>

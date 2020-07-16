@@ -327,3 +327,30 @@ a:hover {
 video:focus, video, audio {
     outline: none;
 }
+
+#details-preview table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+}
+
+#details-preview table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#details-preview tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#details-preview tr:hover {
+    background-color: #ddd;
+}
+
+#details-preview tr:first-child {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

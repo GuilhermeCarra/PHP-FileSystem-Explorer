@@ -205,6 +205,17 @@ function fileClicked() {
                 let video = '<video controls class="img-thumbnail"><source src="'+file+'"></video>'
                 $('#details-preview').append(video);
             }
+            if (extension == "csv") {
+                $('#details-preview').removeClass("d-none");
+                $.post({
+                    type: 'POST',
+                    url: 'filesFunctions.php',
+                    data: ({operation: "readCSV", file: file}),
+                    success: function(printedCSV) {
+                        $('#details-preview').append($("<table>").append(printedCSV));
+                    }
+                });
+            }
         }
     });
 
