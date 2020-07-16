@@ -22,6 +22,9 @@ switch ($_POST['operation']) {
     case 'pasteFile':
         pasteFile();
         break;
+    case 'search':
+        search();
+        break;
 }
 
 function showFolder() {
@@ -115,5 +118,8 @@ function bytesConvert($bytes) {
     return $bytes;
 }
 
+function search() {
+    
+}
 
 ?>
