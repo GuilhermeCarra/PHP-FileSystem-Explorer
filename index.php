@@ -41,7 +41,7 @@
                             <button class="btn btn-primary btn-block" id="newFolderModalBtn" data-toggle="modal" data-target="#newfolderModal">New Folder</button>
                             <div class="hr-line-dashed"></div>
                             <h5>Folders</h5>
-                            <ul class="folder-list" style="padding: 0">
+                            <ul class="folder-list" >
                                 <li id="root"><i class="fa fa-folder"></i>My Files</li>
                                 <li id="delete" class="mt-2"><i class="fa fa-trash"></i>Trash</li>
                             </ul>

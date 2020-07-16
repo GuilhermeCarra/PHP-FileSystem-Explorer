@@ -36,6 +36,10 @@ li {
     padding: 0;
 }
 
+.folder-list {
+    padding: 0;
+}
+
 .folder-list li a {
     color: #666666;
     display: block;
