@@ -90,8 +90,17 @@ function renameFile() {
 }
 
 function removeFile() {
-    $basename = basename($_POST['name']);
-    rename($_POST['name'], 'Trash/'.$basename);
+    $path = pathinfo($_POST['name']);
+    if ($path['dirname'] == 'Trash') {
+        if (is_dir($_POST['name'])){
+            rmdir($_POST['name']);
+        } else {
+            unlink($_POST['name']);
+        }
+    } else {
+        $basename = basename($_POST['name']);
+        rename($_POST['name'], 'Trash/'.$basename);
+    }
 }
 
 function cutFile() {
