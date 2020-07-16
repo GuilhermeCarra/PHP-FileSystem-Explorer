@@ -34,7 +34,7 @@ $("#btn_upload").click(function() {
     fd.append('file', files);
 
     $.ajax({
-        url: 'filesFunctions.php',
+        url: 'filesFunctions.php?actualDir='+actualDir,
         type: 'post',
         data: fd,
         contentType: false,

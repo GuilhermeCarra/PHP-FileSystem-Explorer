@@ -189,7 +189,7 @@ function upload() {
     $filename = $_FILES['file']['name'];
 
     /* Location */
-    $location = "Root/".$filename;
+    $location = $_GET['actualDir'].$filename;
     move_uploaded_file($_FILES['file']['tmp_name'], $location);
 }
 
