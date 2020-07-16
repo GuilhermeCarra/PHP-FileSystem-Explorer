@@ -381,6 +381,7 @@ $("#search-bar").keypress(function(){
                 data: ({operation: "search", searchWord: searchedWord}),
                 success: function(JSONcontent) {
                     $("#search-bar").val("");
+                    $(".active").removeClass("active");
                     // After file search on PHP update screen to results
 
                     // Parsing and divide JSON Content by file category

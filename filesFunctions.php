@@ -154,7 +154,7 @@ function search() {
     $dirs = array_values($dirs);
     $files = array_values($files);
     $filesSize = array_values($filesSize);
-    
+
     $content = array(json_encode($dirs),json_encode($files),json_encode($filesSize));
 
     echo json_encode($content);
