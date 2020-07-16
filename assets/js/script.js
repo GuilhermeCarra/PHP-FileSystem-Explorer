@@ -16,10 +16,9 @@ Array.prototype.forEach.call(
     });
 
     hiddenInput.addEventListener("change", function() {
-        const filenameList = Array.prototype.map.call(hiddenInput.files, function(
-        file
-        ) {
-        return file.name;
+        const filenameList = Array.prototype.map.call(hiddenInput.files, function(file) {
+            $("#btn_upload").click();
+            return file.name;
         });
 
         label.textContent = filenameList.join(", ") || defaultLabelText;
@@ -28,19 +27,40 @@ Array.prototype.forEach.call(
     }
 );
 
+$("#btn_upload").click(function() {
+    $("#actualDirUpload").val(actualDir);
+    var fd = new FormData();
+    var files = $('#file')[0].files[0];
+    fd.append('file', files);
+
+    $.ajax({
+        url: 'filesFunctions.php',
+        type: 'post',
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: function(){
+            $.when(getFolderContent()).then(function(JSONcontent) {
+                content = parseContent(JSONcontent);
+                var dirs = content[0];
+                updateFoldersTree(dirs);
+                updateScreen(content);
+            });
+        }
+    });
+});
+
 document.getElementById("logofile").addEventListener("click",function(){
     location.reload();
 });
 
-
-
   // TIME TO FINISH
-/* Timer to finish 
+/* Timer to finish
 setTimeout(fade_out, 5000);
 
  function fade_out() {
   $(".file-upload__label").fadeOut().empty();
-} */ 
+} */
 
 // Right click menu
 function rightclick(event){

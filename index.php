@@ -24,7 +24,10 @@
             </a>
             <div class="form-inline">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search-bar">
-                <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
+                <form method="post" action="" enctype="multipart/form-data" id="upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" id="file" multiple>
+                    <input type="button" class="d-none" id="btn_upload">
+                </form>
                 <i class="fa fa-download ml-3 file-upload__button" type="button"></i>
                 <span class="file-upload__label ml-1"></span>
             </div>

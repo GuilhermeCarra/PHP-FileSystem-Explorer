@@ -1,5 +1,7 @@
 <?php
 
+if(isset($_FILES['file'])) $_POST['operation'] = "upload";
+
 switch ($_POST['operation']) {
     case 'showFolder':
         showFolder();
@@ -27,6 +29,9 @@ switch ($_POST['operation']) {
         break;
     case 'readCSV':
         readCSV();
+        break;
+    case 'upload':
+        upload();
         break;
 }
 
@@ -177,6 +182,15 @@ function readCSV() {
     }
     fclose($handle);
     echo $printedCSV;
+}
+
+function upload() {
+    /* Getting file name */
+    $filename = $_FILES['file']['name'];
+
+    /* Location */
+    $location = "Root/".$filename;
+    move_uploaded_file($_FILES['file']['tmp_name'], $location);
 }
 
 ?>
