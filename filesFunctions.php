@@ -128,7 +128,36 @@ function bytesConvert($bytes) {
 }
 
 function search() {
+    $dir = 'Root/';
+    $dirs = array();
+    $files = array();
+    $filesSize = array();
+    $searchWord = strtolower($_POST['searchWord']);
+    $allFiles = new RecursiveDirectoryIterator($dir);
+    foreach(new RecursiveIteratorIterator($allFiles) as $file) {
+        if (is_dir($file)) {
+            $folder = str_replace(".", "", $file);
+            $actualFile = strtolower(basename($folder));
+        } else {
+            $actualFile = strtolower(basename($file));
+        }
+        if(strpos($actualFile, $searchWord) !== false) {
+            if (is_dir($file)) {
+                $dirs[] = str_replace(".", "", $file);
+            } else {
+                $files[] = $file->getPathname();
+                $filesSize[] = bytesConvert(filesize($file));
+            }
+        }
+    }
+    $dirs = array_unique($dirs);
+    $dirs = array_values($dirs);
+    $files = array_values($files);
+    $filesSize = array_values($filesSize);
     
+    $content = array(json_encode($dirs),json_encode($files),json_encode($filesSize));
+
+    echo json_encode($content);
 }
 
 ?>

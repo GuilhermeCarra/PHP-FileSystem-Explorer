@@ -23,7 +23,7 @@
                 <text class="logo-text mt-1">FileSys</text>
             </a>
             <div class="form-inline">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search-bar">
                 <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
                 <i class="fa fa-download ml-3 file-upload__button" type="button"></i>
                 <span class="file-upload__label ml-1"></span>

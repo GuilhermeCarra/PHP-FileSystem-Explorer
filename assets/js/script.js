@@ -159,6 +159,12 @@ function getExtension(filename) {
     return parts[parts.length - 1];
 }
 
+// Show "Trash" files
+$("#delete").data("path","Trash/");
+$("#delete").click(function(){
+    changeFolder(event);
+});
+
 function fileClicked() {
     if ($(event.target).is("li")) {
         var file = $(event.target).data("path");
@@ -364,8 +370,62 @@ $("#rightClickPaste").click(function(){
     });
 });
 
-// Show "Trash" files
-$("#delete").data("path","Trash/");
-$("#delete").click(function(){
-    changeFolder(event);
+// Search bar function
+$("#search-bar").keypress(function(){
+    var searchedWord = $("#search-bar").val().trimStart().trimEnd();
+    if(event.keyCode == '13'){
+        if(searchedWord.length > 0) {
+            $.post({
+                type: 'POST',
+                url: 'filesFunctions.php',
+                data: ({operation: "search", searchWord: searchedWord}),
+                success: function(JSONcontent) {
+                    $("#search-bar").val("");
+                    // After file search on PHP update screen to results
+
+                    // Parsing and divide JSON Content by file category
+                    var content = parseContent(JSONcontent)
+                    var folders = content[0];
+                    var files = content[1];
+                    var filesSize = content[2];
+
+                    $('#folder').empty();
+
+                    // Printing search results
+                    if (folders.length > 0) {
+                        for (let i = 0; i < folders.length; i++) {
+                            let name = folders[i].split('/');
+                            name = name[name.length-2];
+                            let folder = $('<li class="media"></li>')
+                            let img = '<img src="assets/img/folder.png" class="mr-3 ml-1 mt-2 mb-1" height="50px" width="50px">'
+                            let div = '<div class="media-body"><h5 class="mt-0 mb-1 mt-3">'+name+'</h5></div>'
+                            $(folder).append(img,div);
+                            $('#folder').append($(folder)
+                                .data("path",folders[i]+"/")
+                                .dblclick(changeFolder)
+                                .contextmenu(rightclick));
+                        }
+                    }
+                    if (files.length > 0) {
+                        for (let i = 0; i < files.length; i++) {
+                            let ext = files[i].split('.')[1];
+                            let name = files[i].split('/');
+                            name = name[name.length-1];
+                            let file = $('<li class="media"></li>');
+                            let img = $('<img src="assets/img/'+ext+'.png" class="mr-3 ml-1 mt-2 mb-1" height="50px" width="50px">');
+                            let div = '<div class="media-body"><h5 class="mt-0 mb-1 mt-3">'+name+'<span class="float-right">'+filesSize[i]+'</span></h5></div>';
+                            $(file,img,div).data("path",files[i]);
+
+                            $(file).append(img,div);
+                            $('#folder').append($(file)
+                                .data("path",files[i])
+                                .click(fileClicked)
+                                .contextmenu(rightclick));
+                        }
+                    }
+                }
+            });
+        }
+    }
 });
+
