@@ -60,7 +60,7 @@
                             </form>
                         </nav>
                         <ul class="list-unstyled" id="folder" >
-                            <!-- Archives / Folder printed dynamically -->
+                            <!-- Archives / Folders printed dynamically -->
                         </ul>
                     </div>
                 </div>
