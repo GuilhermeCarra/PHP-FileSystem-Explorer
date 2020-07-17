@@ -4,7 +4,7 @@
 
 ## DESCRIPTION
 
-This project operates like an OS File Explorer.
+This project operates like an OS File Explorer where PHP provides folders/files info to Javascript show it on browser.
 
 ## FEATURES
 
