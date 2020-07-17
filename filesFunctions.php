@@ -112,6 +112,7 @@ function removeFile() {
 }
 
 function cutFile() {
+    mkdir("Cutted/");
     $basename = basename($_POST['name']);
     rename($_POST['name'], 'Cutted/'.$basename);
 }
