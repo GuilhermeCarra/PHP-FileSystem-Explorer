@@ -16,6 +16,9 @@ This project operates like an OS File Explorer where PHP provides folders/files 
 * Search for files and folders
 * Upload files
 
+## Screenshots
+![screenshot](https://live.staticflickr.com/65535/50506421041_9bd6dfceb6_k.jpg)
+
 ## INSTRUCTIONS
 
 * Double click to **enter** a folder on the folder's content screen.
